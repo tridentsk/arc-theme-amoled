@@ -1,5 +1,5 @@
 var gulp        = require("gulp");
-var sass        = require("gulp-sass");
+var sass        = require("gulp-sass")(require('node-sass'));
 var rename      = require('gulp-rename');
 
 gulp.task('sass', function () {
@@ -17,4 +17,4 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('default', ['sass']);
+gulp.task('default', gulp.series('sass'));
